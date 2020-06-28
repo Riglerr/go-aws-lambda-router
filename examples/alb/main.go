@@ -9,8 +9,7 @@ import (
 	"github.com/riglerr/go-aws-lambda-router/pkg/alb"
 )
 
-// LoginHandler handles the HTTP event: GET /auth/login
-// Response: 302 Redirect to the url configured in the SSO_URL environment variable
+// LoginHandler handles the HTTP event: GET /login
 func LoginHandler(w http.ResponseWriter, req *http.Request) {
 	log.Printf("Received /login request, %+v", req)
 	w.WriteHeader(200)
@@ -18,10 +17,9 @@ func LoginHandler(w http.ResponseWriter, req *http.Request) {
 	w.Write([]byte("OK"))
 }
 
-// CallbackHandler handles the HTTP event: POST /auth/login
-// It expects the request body to be x-www-form-urlencoded
+// CallbackHandler handles the HTTP event: GET /callback
 func CallbackHandler(w http.ResponseWriter, req *http.Request) {
-	log.Printf("Received /login request, %+v", req)
+	log.Printf("Received /callback request, %+v", req)
 	w.WriteHeader(200)
 	w.Header().Add("Content-Type", "text/plain")
 	w.Write([]byte("CALLBACK OK"))
