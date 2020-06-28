@@ -1,0 +1,15 @@
+Transform: AWS::Serverless-2016-10-31
+Resources:
+    RouterFunction:
+        Type: AWS::Serverless::Function
+        Properties:
+            CodeUri: .
+            Runtime: go1.x
+            FunctionName: router
+            Handler: lambda
+            Events:
+                LoginEvent:
+                    Type: Api
+                    Properties:
+                        Method: get
+                        Path: '/login'

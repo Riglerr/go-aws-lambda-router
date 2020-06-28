@@ -1,0 +1,5 @@
+main
+lambda
+.aws-sam
+.vscode
+test.http
